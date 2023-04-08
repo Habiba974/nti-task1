@@ -1,0 +1,18 @@
+{{>header}}
+
+<h3 class="text-center">Task</h3>
+<section class="my-4 container text-center">
+    {{#if task}}
+    <div>
+       id: <h6>{{task.id}}</h6>
+       Title: <h6>{{task.title}}</h6>
+       Contant: <h6>{{task.contant}}</h6>
+       Date: <h6>{{task.date}}</h6>
+    </div>
+    {{else}}
+    <div class="alert alert-danger">
+        No task found
+    </div>
+    {{/if}}
+</section>
+{{>footer}}
