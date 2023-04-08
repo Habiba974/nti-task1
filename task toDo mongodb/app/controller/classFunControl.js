@@ -47,13 +47,16 @@ task})
     
 }
 
-static editLogic=(req,res)=>{
-     const id = req.params.id
-        const read=appDel.readJsonData(file)
-        const index = read.findIndex(i=> i.id == id)
-        read[index] = {id, ...req.query}
-        appDel.writeJsonData(file, read)
-        res.redirect(`/single/${id}`)
+static editLogic= async(req,res)=>{
+    try{
+        modb(async(db)=>
+        await db .collection("users").updateOne({_id:new ObjectId(req.params.id)}))
+    res.redirect(`/single/${_id}`)
+    }
+    catch(err){
+        res.send(err)
+    }
+        
 }
 //ask about it
 static search = (req, res) => {
