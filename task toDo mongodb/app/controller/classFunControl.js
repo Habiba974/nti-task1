@@ -38,6 +38,7 @@ static edit=async(req,res)=>{
     try{modb(async(db)=>{
 const task=await db.collection("users").findOne({
     _id:new ObjectId(req.params.id)
+    
 }) 
 res.render("edit",{
         pageTitle:("Edit Task"),
@@ -50,7 +51,8 @@ task})
 static editLogic= async(req,res)=>{
     try{
         modb(async(db)=>
-        await db .collection("users").updateOne({_id:new ObjectId(req.params.id)}))
+        await db .collection("users").updateOne({_id:new ObjectId(req.params.id)},  { $set: { ...req.query } }
+))
     res.redirect(`/single/${_id}`)
     }
     catch(err){
