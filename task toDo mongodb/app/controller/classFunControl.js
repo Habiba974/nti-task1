@@ -85,7 +85,7 @@ static search = (req, res) => {
     
 
     
-
+//main 
 static single=async(req,res)=>{
     try{
             modb(async(db)=>{
