@@ -1,0 +1,26 @@
+{{>header}}
+
+
+<section>
+    <h3>Edit Task</h3>
+    <form class="m-5" action="/editLogic/{{task._id}}">
+        <div class="mb-3 ">
+            <label class="form-label">Task title</label>
+            <input name="title" class="form-control" value="{{task.title}}" >
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Contant</label>
+            <input name="contant" class="form-control" value="{{task.contant}}" >
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Date</label>
+            <input name="date" type="date" class="form-control" value="{{task.date}}">
+        </div>
+
+        <button class="btn btn-primary mb-3">Submit</button>
+    </form>
+
+</section>
+
+{{>footer}}

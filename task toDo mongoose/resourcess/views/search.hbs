@@ -1,0 +1,43 @@
+{{>header}}
+
+<h3>Find Task</h3>
+<section class="contaner">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Title</th>
+                <th>Contant</th>
+                <th>Date</th>
+    
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if hasData}}
+            {{#each read}}
+            <tr>
+                <td>{{_id}}</td>
+                <td>{{title}}</td>
+                <td>{{contant}}</td>
+                <td>{{date}}</td>
+                <td>
+                    <a href="/single/{{_id}}" class="btn btn-primary mx-3">Show</a>
+                    <a href="/status/{{_id}}" class="btn btn-success mx-3" id="inact">Inactive</a>
+    
+                    <a href="/edit/{{_id}}" class="btn btn-warning mx-3">Edit</a>
+                    <a href="/del/{{_id}}" class="btn btn-danger mx-3">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+            {{else}}
+            <tr>
+                <td colspan="5" class="text-center" style="color: red;">No Tasks yet</td>
+            </tr>
+            {{/if}}
+        </tbody>
+    </table>
+</section>
+
+{{>footer}}
